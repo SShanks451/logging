@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.post("/api/upload", upload.single("file"), (req, res) => {
-  console.log(req.file);
+  // console.log(req.file);
 });
 
 app.post("/api/input_data", (req, res) => {
@@ -56,11 +56,13 @@ app.get("/api/results", (req, res) => {
 });
 
 const img_one = "Gamma_ray_log_borehole_size_calliper_log.png";
-const img_two = "Deep_Res.png";
-const img_three = "Neutron_Density.png";
-const img_four = "Shear_Compressional.png";
-const img_five = "Neutron_Porosity_Density_Porosity.png";
-const img_six = "SwArch.png";
+const img_two = "Shale_volume.png";
+const img_three = "Deep_Res.png";
+const img_four = "Neutron_Density.png";
+const img_five = "Shear_Compressional.png";
+const img_six = "Neutron_Porosity_Density_Porosity.png";
+const img_seven = "Sonic_Porosity.png";
+const img_eight = "SwArch.png";
 
 app.get("/api/save_images", async (req, res) => {
   const cld_result_one = await cloudinary.uploader.upload(img_one);
@@ -69,6 +71,8 @@ app.get("/api/save_images", async (req, res) => {
   const cld_result_four = await cloudinary.uploader.upload(img_four);
   const cld_result_five = await cloudinary.uploader.upload(img_five);
   const cld_result_six = await cloudinary.uploader.upload(img_six);
+  const cld_result_seven = await cloudinary.uploader.upload(img_seven);
+  const cld_result_eight = await cloudinary.uploader.upload(img_eight);
 
   res.json({
     cld_result_one: cld_result_one.url,
@@ -77,6 +81,8 @@ app.get("/api/save_images", async (req, res) => {
     cld_result_four: cld_result_four.url,
     cld_result_five: cld_result_five.url,
     cld_result_six: cld_result_six.url,
+    cld_result_seven: cld_result_seven.url,
+    cld_result_eight: cld_result_eight.url,
   });
 });
 

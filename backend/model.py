@@ -44,22 +44,28 @@ dframe_depth = df["DEPTH"]
 y_min = float(py_data["shallow_point"])
 y_max = float(py_data["deep_point"])
 
-fig=plt.figure(figsize=(3,10))
+dframe_shale_volume = shale_volume_arr
 
-x=shale_volume_arr
-axes=fig.add_axes([0,0,1,1])
-axes.plot(x,y, color = 'black', lw=0.5)
 
-axes.set_ylim(y_max, y_min) 
-axes.set_xlim(0, 1)
-axes.set_xlabel("Shale volume")
-axes.xaxis.set_label_position("top")
-axes.xaxis.set_ticks_position("top")
+fig, ax3 = plt.subplots(1, 1, figsize=(3, 10))
+curve_names = ['Shale Volume']
 
-axes.axes.yaxis.set_ticklabels([])
 
-axes.set_xticks
-axes.grid()
+ax3.plot(dframe_shale_volume, df["DEPTH"], color="Black", lw=0.5)
+ax3.set_xlim(0, 1)
+
+
+ax3.spines['top'].set_edgecolor('Black')
+ax3.set_ylim(y_max, y_min)
+ax3.xaxis.set_ticks_position("top")
+ax3.xaxis.set_label_position("top")
+ax3.set_xlabel(curve_names[0])
+
+
+
+ax3.grid()
+ax3.axes.yaxis.set_ticklabels([])
+
 plt.savefig('Shale_volume.png', bbox_inches='tight')
 
 dframe_bulk_density = df["RHOB"]
@@ -120,22 +126,27 @@ for val in dframe_sonic_compressional:
 
 # print(wylie_sonic_porosity_arr)
 
-fig=plt.figure(figsize=(3,10))
+dframe_sonic_porosity = wylie_sonic_porosity_arr
 
-x=wylie_sonic_porosity_arr
-axes=fig.add_axes([0,0,1,1])
-axes.plot(x,y, color = 'red', lw=0.5)
 
-axes.set_ylim(y_max, y_min) 
-axes.set_xlim(0, 1)
-axes.set_xlabel("Sonic Porosity")
-axes.xaxis.set_label_position("top")
-axes.xaxis.set_ticks_position("top")
+fig, ax3 = plt.subplots(1, 1, figsize=(3, 10))
+curve_names = ['Sonic Porosity']
 
-axes.axes.yaxis.set_ticklabels([])
 
-axes.set_xticks
-axes.grid()
+ax3.plot(dframe_sonic_porosity, df["DEPTH"], color="magenta", lw=0.5)
+ax3.set_xlim(0, 1)
+
+
+ax3.spines['top'].set_edgecolor('magenta')
+ax3.set_ylim(y_max, y_min)
+ax3.xaxis.set_ticks_position("top")
+ax3.xaxis.set_label_position("top")
+ax3.set_xlabel(curve_names[0])
+
+
+
+ax3.grid()
+ax3.axes.yaxis.set_ticklabels([])
 plt.savefig('Sonic_Porosity.png', bbox_inches='tight')
 
 # import numpy as np
@@ -281,27 +292,27 @@ water_saturation_array = calculate_water_saturation(Rw, Rt_array, porosity_array
 
 # print(len(y))
 
-fig=plt.figure(figsize=(3,10))
+dframe_water_saturation = water_saturation_array
 
-x = water_saturation_array
-axes=fig.add_axes([0,0,1,1])
-axes.plot(x,y, color = 'blue', lw=0.5)
 
-# Setting a condition to cap values in water_saturation_array at 1
-water_saturation_array = np.minimum(water_saturation_array, 1)
+fig, ax3 = plt.subplots(1, 1, figsize=(3, 10))
+curve_names = ['Water Saturation']
 
-axes.set_ylim(y_max, y_min) 
-axes.set_xlim(0, 1)
-axes.set_xlabel("SwArch")
-axes.xaxis.set_label_position("top")
-axes.xaxis.set_ticks_position("top")
-# axes.fill_betweenx(x, y, color='lightblue')
-axes.axes.yaxis.set_ticklabels([])
 
-axes.fill_betweenx(y, x, color='cyan')
+ax3.plot(dframe_water_saturation, df["DEPTH"], color="Blue", lw=0.5)
+ax3.set_xlim(0, 1)
 
-axes.set_xticks
-axes.grid()
+
+ax3.spines['top'].set_edgecolor('Green')
+ax3.set_ylim(y_max, y_min)
+ax3.xaxis.set_ticks_position("top")
+ax3.xaxis.set_label_position("top")
+ax3.set_xlabel(curve_names[0])
+
+ax3.fill_betweenx(df["DEPTH"], dframe_water_saturation, color='cyan')
+
+ax3.grid()
+ax3.axes.yaxis.set_ticklabels([])
 plt.savefig('SwArch.png', bbox_inches='tight')
 
 # dframe_callipar_log = df["CALI"]
@@ -410,23 +421,22 @@ dframe_deep_resistivity_log = df["RT"]
 # print(dframe_deep_resistivity_log)
 
 
-fig=plt.figure(figsize=(3,10))
+fig, ax3 = plt.subplots(1, 1, figsize=(3, 10))
+curve_names = ['Deep Resistivity']
 
-x = dframe_deep_resistivity_log
-axes=fig.add_axes([0,0,1,1])
-axes.plot(x,y, color = 'green', lw=0.5)
-axes.semilogx()
 
-axes.set_ylim(y_max, y_min) 
-axes.set_xlim(0.2, 1000)
-axes.set_xlabel("Deep Res")
-axes.xaxis.set_label_position("top")
-axes.xaxis.set_ticks_position("top")
+ax3.plot(df["RT"], df["DEPTH"], color="Green", lw=0.5)
+ax3.set_xlim(0.2, 1000)
 
-axes.axes.yaxis.set_ticklabels([])
+ax3.semilogx()
+ax3.spines['top'].set_edgecolor('Green')
+ax3.set_ylim(y_max, y_min)
+ax3.xaxis.set_ticks_position("top")
+ax3.xaxis.set_label_position("top")
+ax3.set_xlabel(curve_names[0])
 
-axes.set_xticks
-axes.grid()
+ax3.grid()
+ax3.axes.yaxis.set_ticklabels([])
 plt.savefig('Deep_Res.png', bbox_inches='tight')
 
 fig, ax3 = plt.subplots(1, 1, figsize=(3, 10))

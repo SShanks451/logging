@@ -28,26 +28,32 @@ const Result = () => {
   return (
     <div>
       <div>
-        <div className="text-center m-6 text-4xl font-semibold bg-slate-400 py-4">Results</div>
+        <div className="text-center m-6 text-4xl font-semibold bg-gray-400 py-4">Results</div>
       </div>
       <div className="flex">
         <div>
           <img className="" src={images.cld_result_one} />
         </div>
         <div className="">
-          <img className="mt-[34%]" src={images.cld_result_two} />
+          <img className="mt-[44%]" src={images.cld_result_two} />
         </div>
         <div className="">
-          <img className="mt-[21.5%]" src={images.cld_result_three} />
+          <img className="mt-[43%]" src={images.cld_result_three} />
         </div>
         <div className="">
           <img className="mt-[21.5%]" src={images.cld_result_four} />
         </div>
         <div className="">
-          <img className="mt-[21.5%]" src={images.cld_result_five} />
+          <img className="mt-[21%]" src={images.cld_result_five} />
         </div>
         <div className="">
-          <img className="mt-[34%]" src={images.cld_result_six} />
+          <img className="mt-[21%]" src={images.cld_result_six} />
+        </div>
+        <div className="">
+          <img className="mt-[43%]" src={images.cld_result_seven} />
+        </div>
+        <div className="">
+          <img className="mt-[43%]" src={images.cld_result_eight} />
         </div>
       </div>
     </div>

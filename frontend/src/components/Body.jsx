@@ -54,6 +54,7 @@ const Body = () => {
 
   return (
     <div>
+      <div className="text-center m-4 text-4xl font-semibold bg-gray-400 py-5">Well Log Visualization</div>
       <div className="grid grid-cols-5 gap-4">
         <div className="col-span-2">
           <div className="w-11/12 h-fit border-2 border-solid border-slate-600 rounded-lg m-6 p-6">
@@ -184,7 +185,7 @@ const Body = () => {
               <h1 className="col-span-2 text-xl font-bold">Archie's Equation</h1>
               <div className="col-span-3">
                 <div className="flex mb-2">
-                  <h1 className="w-2/5">Res. for water formation</h1>
+                  <h1 className="w-2/5">Res. formation water(Rw)</h1>
                   <input
                     className="w-3/5 border-2 border-solid border-slate-600 rounded text-center"
                     type="text"
