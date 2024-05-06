@@ -29,7 +29,7 @@ const Result = () => {
   const handleDownloadButton = async (e) => {
     e.preventDefault();
     const res = await axios({
-      url: "/api/download_excel",
+      url: "http://localhost:3000/api/download_excel",
       method: "GET",
       responseType: "blob",
     });
