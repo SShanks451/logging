@@ -86,6 +86,10 @@ app.get("/api/save_images", async (req, res) => {
   });
 });
 
+app.get("/api/download_excel", (req, res) => {
+  res.download("./Calculations.xlsx");
+});
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });

@@ -7,19 +7,19 @@ import axios from "axios";
 const Body = () => {
   const navigate = useNavigate();
 
-  const [shallow_point, setShallow_point] = useState("");
-  const [deep_point, setDeep_point] = useState("");
-  const [shale_value, setShale_value] = useState("");
-  const [clean_value, setClean_value] = useState("");
-  const [matrix_density, setMatrixDensity] = useState("");
-  const [fluid_density, setFluid_density] = useState("");
-  const [fluid_transit_time, setFluid_transit_time] = useState("");
-  const [matrix_transit_time, setMatrix_transit_time] = useState("");
-  const [correction_factor_value, setCorrection_factor_value] = useState("");
-  const [true_formation_resistivity, setTrue_formation_resistivity] = useState("");
-  const [tortuosity, setTortuosity] = useState("");
-  const [cementation_exponent, setCementation_exponent] = useState("");
-  const [saturation_exponent, setSaturation_exponent] = useState("");
+  const [shallow_point, setShallow_point] = useState(2500);
+  const [deep_point, setDeep_point] = useState(3800);
+  const [shale_value, setShale_value] = useState(200);
+  const [clean_value, setClean_value] = useState(0);
+  const [matrix_density, setMatrixDensity] = useState(2.65);
+  const [fluid_density, setFluid_density] = useState(1);
+  const [fluid_transit_time, setFluid_transit_time] = useState(189);
+  const [matrix_transit_time, setMatrix_transit_time] = useState(55.5);
+  const [correction_factor_value, setCorrection_factor_value] = useState(1);
+  const [true_formation_resistivity, setTrue_formation_resistivity] = useState(0.02);
+  const [tortuosity, setTortuosity] = useState(0.81);
+  const [cementation_exponent, setCementation_exponent] = useState(2);
+  const [saturation_exponent, setSaturation_exponent] = useState(2);
 
   const [file, setFile] = useState();
 

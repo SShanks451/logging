@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FileDownload from "js-file-download";
 
 const Result = () => {
   const [result, setResult] = useState(null);
@@ -25,10 +26,25 @@ const Result = () => {
     );
   }
 
+  const handleDownloadButton = async (e) => {
+    e.preventDefault();
+    const res = await axios({
+      url: "/api/download_excel",
+      method: "GET",
+      responseType: "blob",
+    });
+    FileDownload(res.data, "Calculations.xlsx");
+  };
+
   return (
     <div>
       <div>
         <div className="text-center m-6 text-4xl font-semibold bg-gray-400 py-4">Results</div>
+      </div>
+      <div className="flex justify-center">
+        <button className="border-2 bg-slate-400 px-8 py-3 m-4" onClick={handleDownloadButton}>
+          Download Result File
+        </button>
       </div>
       <div className="flex">
         <div>

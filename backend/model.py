@@ -549,6 +549,21 @@ ax5.spines['top'].set_position(('axes', 1.16))
 
 plt.savefig('Gamma_ray_log_borehole_size_calliper_log.png', bbox_inches='tight')
 
+column_names = ['Depth', 'Shale Volume', 'Density Porosity', 'Sonic Porosity', 'Water Saturation']
 
+# Create DataFrame from arrays
+df = pd.DataFrame({
+    'Depth': dframe_depth,
+    'Shale Volume': shale_volume_arr,
+    'Density Porosity': density_porosity_arr,
+    'Sonic Porosity': wylie_sonic_porosity_arr,
+    'Water Saturation': water_saturation_array
+})
+
+# Create DataFrame from the dictionary
+# df = pd.DataFrame(data)
+
+# Save the DataFrame to an Excel file
+df.to_excel('Calculations.xlsx', index=False)
 
 print("CHILD TASK FINISHED")
